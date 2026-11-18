@@ -1,138 +1,261 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Campus Stores · Media equipment desk</title>
-    <meta
-      name="description"
-      content="Work a shift at a fictional campus equipment desk in this interactive product engineering exercise."
-    />
-    <link rel="stylesheet" href="./styles.css" />
-    <script defer src="./app.js"></script>
-  </head>
-  <body>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="0"
-      height="0"
-      aria-hidden="true"
-      class="icon-library"
-    >
-      <symbol id="icon-package-open" viewBox="0 0 24 24">
-        <path d="M12 22v-9" />
-        <path
-          d="M15.17 2.21a1.67 1.67 0 0 1 1.63 0L21 4.57a1.93 1.93 0 0 1 0 3.36L8.82 14.79a1.655 1.655 0 0 1-1.64 0L3 12.43a1.93 1.93 0 0 1 0-3.36z"
-        />
-        <path
-          d="M20 13v3.87a2.06 2.06 0 0 1-1.11 1.83l-6 3.08a1.93 1.93 0 0 1-1.78 0l-6-3.08A2.06 2.06 0 0 1 4 16.87V13"
-        />
-        <path
-          d="M21 12.43a1.93 1.93 0 0 0 0-3.36L8.83 2.2a1.64 1.64 0 0 0-1.63 0L3 4.57a1.93 1.93 0 0 0 0 3.36l12.18 6.86a1.636 1.636 0 0 0 1.63 0z"
-        />
-      </symbol>
-      <symbol id="icon-package" viewBox="0 0 24 24">
-        <path
-          d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"
-        />
-        <path d="M12 22V12" />
-        <polyline points="3.29 7 12 12 20.71 7" />
-        <path d="m7.5 4.27 9 5.15" />
-      </symbol>
-      <symbol id="icon-clipboard-list" viewBox="0 0 24 24">
-        <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-        <path
-          d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
-        />
-        <path d="M12 11h4" />
-        <path d="M12 16h4" />
-        <path d="M8 11h.01" />
-        <path d="M8 16h.01" />
-      </symbol>
-      <symbol id="icon-book-open" viewBox="0 0 24 24">
-        <path d="M12 7v14" />
-        <path
-          d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
-        />
-      </symbol>
-      <symbol id="icon-messages-square" viewBox="0 0 24 24">
-        <path
-          d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"
-        />
-        <path
-          d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"
-        />
-      </symbol>
-    </svg>
-    <main>
-      <div id="campus-stores">
-        <div class="examstrip">
-          <span>Product Engineer practical</span>
-          <details>
-            <summary>Candidate brief</summary>
-            <div class="briefcopy">
-              <h2>Would you keep this product?</h2>
-              <p>
-                Work a shift at the campus media desk. Get the Film Society’s
-                kit out for its screening, handle the return, and leave the next
-                shift enough information to finish the job. Use the time control
-                to move the story forward.
-              </p>
-              <p>
-                Show one moment the product handles well and one moment you
-                would change. Use a specific action or decision from your shift
-                as evidence for each.
-              </p>
-              <p>
-                Sketch or prototype your change. Walk us through the same job
-                using it, explain what you would keep, and name one observation
-                at a real counter that would tell you whether it helped.
-              </p>
-              <p>
-                Use any tools you like, including AI assistants, web search,
-                and design or coding tools.
-              </p>
-            </div>
-          </details>
-        </div>
-        <header class="mast">
-          <div class="brandblock">
-            <div class="brandmark" aria-hidden="true">
-              <svg aria-hidden="true" class="store-icon">
-                <use href="#icon-package-open"></use>
-              </svg>
-            </div>
-            <div>
-              <h1>Campus Stores</h1>
-              <div class="muted">Media equipment desk</div>
-            </div>
-          </div>
-          <div class="clock">
-            <small>Desk time</small><strong data-clock></strong>
-          </div>
-        </header>
-        <aside class="shift">
-          <div>
-            <b data-shift-title></b>
-            <p data-shift></p>
-          </div>
-          <button type="button" data-action="advance"></button>
-        </aside>
-        <div class="shell">
-          <nav aria-label="Store records" data-nav></nav>
-          <section
-            class="page"
-            data-page
-            aria-label="Selected register"
-          ></section>
-        </div>
-        <div class="statusbar">
-          <span role="status" aria-live="polite" data-status></span
-          ><button type="button" data-action="restart">
-            Restart sample shift
-          </button>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f6">
+  <title>Campus Stores | Administrator Desk</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="brand">
+        <div class="brand-mark">CS</div>
+        <div>
+          <div class="brand-name">Campus Stores</div>
+          <div class="brand-subtitle">Equipment desk</div>
         </div>
       </div>
+
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">▦</span>Overview</button>
+        <button class="nav-item" data-page="loans"><span class="nav-icon">⇄</span>Loans <span class="nav-count" id="nav-open-count">3</span></button>
+        <button class="nav-item" data-page="inventory"><span class="nav-icon">▤</span>Inventory</button>
+        <button class="nav-item" data-page="activity"><span class="nav-icon">◷</span>Activity</button>
+        <button class="nav-item" data-page="research"><span class="nav-icon">◎</span>User research</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip">
+          <div class="tip-icon">i</div>
+          <div>
+            <strong>New to the desk?</strong>
+            <p>Learn the key terms and how to use this workspace.</p>
+            <button class="text-button" data-go-page="information">Open information →</button>
+          </div>
+        </div>
+        <button class="nav-item" data-page="information"><span class="nav-icon">ⓘ</span>Information</button>
+        <div class="local-note"><span class="status-dot"></span>Saved on this browser</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="mobile-brand"><div class="brand-mark">CS</div><span>Campus Stores</span></div>
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-separator">/</span><strong id="topbar-section">Overview</strong></div>
+        <div class="topbar-actions">
+          <span class="demo-pill"><span class="status-dot"></span>Sample shift</span>
+          <button class="button button-quiet button-small" id="reset-button" title="Restore the original example scenario">Reset sample</button>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <!-- OVERVIEW -->
+        <section class="page active" id="page-overview">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">ADMINISTRATOR VIEW</p>
+              <h1>Good afternoon, desk team</h1>
+              <p class="page-description">See what is out, who has it now, and what the next shift needs to know.</p>
+            </div>
+            <div class="current-time-card">
+              <span class="small-muted">Sample shift time</span>
+              <strong id="scenario-time">Friday · 7:30 PM</strong>
+              <span class="small-muted" id="scenario-label">Partial return in progress</span>
+            </div>
+          </div>
+
+          <div class="scenario-panel">
+            <div class="scenario-copy">
+              <strong>Explore the sample shift</strong>
+              <span>Move through the same pickup, partial return, and next-morning handover from the assignment.</span>
+            </div>
+            <div class="scenario-steps" role="group" aria-label="Sample shift stage">
+              <button class="scenario-step" data-stage="1"><span>1</span><span>Pickup</span></button>
+              <button class="scenario-step active" data-stage="2"><span>2</span><span>Partial return</span></button>
+              <button class="scenario-step" data-stage="3"><span>3</span><span>Morning return</span></button>
+            </div>
+          </div>
+
+          <div class="metric-grid" id="overview-metrics">
+            <article class="metric-card">
+              <div class="metric-top"><span>Items currently out</span><span class="metric-icon blue">↗</span></div>
+              <strong id="metric-out">2</strong>
+              <small>Physical items not yet returned</small>
+            </article>
+            <article class="metric-card">
+              <div class="metric-top"><span>People holding items</span><span class="metric-icon violet">♙</span></div>
+              <strong id="metric-holders">2</strong>
+              <small>Current custodians across open loans</small>
+            </article>
+            <article class="metric-card">
+              <div class="metric-top"><span>Custody changes</span><span class="metric-icon amber">⇄</span></div>
+              <strong id="metric-transfers">1</strong>
+              <small>Transfers recorded in this sample</small>
+            </article>
+            <article class="metric-card">
+              <div class="metric-top"><span>Needs attention</span><span class="metric-icon red">!</span></div>
+              <strong id="metric-attention">0</strong>
+              <small>Overdue or due within 24 hours</small>
+            </article>
+          </div>
+
+          <div class="section-heading-row">
+            <div>
+              <h2>Items still out</h2>
+              <p class="section-description">The next shift can start here. Each row shows the current holder, not just the original borrower.</p>
+            </div>
+            <button class="button button-secondary button-small" data-go-page="loans">View all loans</button>
+          </div>
+          <div id="priority-loans" class="loan-card-list"></div>
+
+          <div class="two-column-grid overview-lower">
+            <section class="panel">
+              <div class="panel-heading">
+                <div><h2>Recent activity</h2><p>What changed most recently.</p></div>
+                <button class="text-button" data-go-page="activity">See activity →</button>
+              </div>
+              <div class="compact-timeline" id="recent-activity"></div>
+            </section>
+            <section class="panel handover-panel">
+              <div class="panel-heading"><div><h2>Next-shift summary</h2><p>A quick handover without reading a long note.</p></div><span class="summary-check">✓</span></div>
+              <div id="handover-summary"></div>
+              <div class="summary-footer"><span class="status-dot"></span>Based on live loan records in this browser</div>
+            </section>
+          </div>
+        </section>
+
+        <!-- LOANS -->
+        <section class="page" id="page-loans">
+          <div class="page-heading">
+            <div><p class="eyebrow">LOAN REGISTER</p><h1>Loans</h1><p class="page-description">Follow every physical item from checkout to return.</p></div>
+            <button class="button button-primary" id="new-note-button">＋ Add a note</button>
+          </div>
+          <div class="filter-row">
+            <div class="filter-tabs" role="group" aria-label="Filter loans">
+              <button class="filter-tab active" data-loan-filter="all">All loans</button>
+              <button class="filter-tab" data-loan-filter="open">Still out</button>
+              <button class="filter-tab" data-loan-filter="returned">Returned</button>
+            </div>
+            <label class="search-box"><span>⌕</span><input id="loan-search" type="search" placeholder="Search person, group or asset" aria-label="Search loans"></label>
+          </div>
+          <div class="helper-banner"><span class="helper-icon">i</span><span><strong>How to read this page:</strong> “Original borrower” is who first checked the item out. “Current holder” is the person who has it now.</span></div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>ITEM / ASSET ID</th><th>GROUP / REQUEST</th><th>ORIGINAL BORROWER</th><th>CURRENT HOLDER</th><th>EXPECTED BACK</th><th>STATUS</th><th></th></tr></thead>
+              <tbody id="loan-table-body"></tbody>
+            </table>
+          </div>
+          <div class="mobile-loan-list" id="mobile-loan-list"></div>
+        </section>
+
+        <!-- INVENTORY -->
+        <section class="page" id="page-inventory">
+          <div class="page-heading">
+            <div><p class="eyebrow">EQUIPMENT LIST</p><h1>Inventory</h1><p class="page-description">Find the exact physical unit. Similar items can have different asset IDs.</p></div>
+            <div class="inventory-total" id="inventory-total">6 physical units</div>
+          </div>
+          <div class="metric-grid inventory-metrics">
+            <article class="metric-card"><div class="metric-top"><span>On shelf</span><span class="metric-icon green">✓</span></div><strong id="inventory-shelf">3</strong><small>Ready to issue</small></article>
+            <article class="metric-card"><div class="metric-top"><span>On loan</span><span class="metric-icon blue">↗</span></div><strong id="inventory-loan">2</strong><small>Currently with people</small></article>
+            <article class="metric-card"><div class="metric-top"><span>In repair</span><span class="metric-icon amber">⚒</span></div><strong id="inventory-repair">1</strong><small>Not available to issue</small></article>
+          </div>
+          <div class="filter-row"><p class="section-description">Select an item to see its loan history.</p><label class="search-box"><span>⌕</span><input id="inventory-search" type="search" placeholder="Search equipment or asset ID" aria-label="Search inventory"></label></div>
+          <div class="inventory-grid" id="inventory-grid"></div>
+        </section>
+
+        <!-- ACTIVITY -->
+        <section class="page" id="page-activity">
+          <div class="page-heading"><div><p class="eyebrow">AUDIT TRAIL</p><h1>Activity</h1><p class="page-description">A time-ordered record of checkouts, transfers, returns, and notes.</p></div><span class="read-only-tag">History is preserved</span></div>
+          <div class="helper-banner"><span class="helper-icon">i</span><span>Every custody change is recorded as a new event. Updating the current holder does not erase who held the item before.</span></div>
+          <div class="activity-toolbar"><span id="activity-count">0 events</span><button class="button button-secondary button-small" id="export-activity">Export activity CSV</button></div>
+          <div class="activity-list" id="activity-list"></div>
+        </section>
+
+        <!-- RESEARCH -->
+        <section class="page" id="page-research">
+          <div class="page-heading"><div><p class="eyebrow">DISCOVERY & VALIDATION</p><h1>User research</h1><p class="page-description">Capture what administrators tell you. Look for the problem that causes the most difficulty.</p></div><button class="button button-secondary" id="export-research">Export responses CSV</button></div>
+          <div class="research-intro"><div class="research-icon">◎</div><div><strong>Interviewer-entry form</strong><p>You fill this in during or immediately after a conversation or observation. Do not enter names, phone numbers, or other personal details. Use an anonymous participant code.</p></div></div>
+
+          <div class="research-layout">
+            <section class="panel research-form-panel">
+              <div class="panel-heading"><div><h2>Record an administrator response</h2><p>One form per person or observed shift.</p></div><span class="required-note">* Required</span></div>
+              <form id="research-form">
+                <div class="form-grid">
+                  <label class="form-field"><span>Participant code <b>*</b></span><input name="participant" required maxlength="24" placeholder="e.g. ADMIN-01"><small>Use a code, not a person's name.</small></label>
+                  <label class="form-field"><span>Role <b>*</b></span><select name="role" required><option value="">Choose role</option><option>Equipment desk administrator</option><option>Shift supervisor</option><option>Student volunteer / desk operator</option><option>Other operations staff</option></select></label>
+                  <label class="form-field"><span>Experience at the desk</span><select name="experience"><option value="Not specified">Not specified</option><option>Less than 3 months</option><option>3–12 months</option><option>1–3 years</option><option>More than 3 years</option></select></label>
+                  <label class="form-field"><span>Evidence type <b>*</b></span><select name="evidence" required><option value="">Choose one</option><option>Administrator interview</option><option>Observed shift / task</option><option>Both interview and observation</option></select></label>
+                </div>
+                <div class="form-divider"></div>
+                <label class="form-field"><span>Which task is most difficult during a handover? <b>*</b></span><select name="hardest" required><option value="">Select the biggest difficulty</option><option value="Finding who currently has an item">Finding who currently has an item</option><option value="Finding the exact physical asset">Finding the exact physical asset</option><option value="Understanding old notes and messages">Understanding old notes and messages</option><option value="Updating the borrower / current holder">Updating the borrower / current holder</option><option value="Knowing when an item is due back">Knowing when an item is due back</option><option value="Confirming whether an item was returned">Confirming whether an item was returned</option><option value="Other">Other</option></select></label>
+                <div class="form-grid">
+                  <label class="form-field"><span>How often does this happen? <b>*</b></span><select name="frequency" required><option value="">Choose frequency</option><option>Every shift</option><option>Several times a week</option><option>About once a week</option><option>Occasionally</option><option>Rarely</option></select></label>
+                  <label class="form-field"><span>How difficult is it? <b>*</b></span><select name="severity" required><option value="">Choose impact</option><option value="1">1 – Minor inconvenience</option><option value="2">2 – Slight difficulty</option><option value="3">3 – Moderate difficulty</option><option value="4">4 – Major difficulty</option><option value="5">5 – Very difficult / blocks work</option></select></label>
+                </div>
+                <label class="form-field"><span>How do they handle it today?</span><textarea name="workaround" rows="2" maxlength="500" placeholder="e.g. Read the previous shift's notebook, call the student, and compare with the loan register."></textarea></label>
+                <label class="form-field"><span>What would help most? <b>*</b></span><select name="solution" required><option value="">Choose the most useful support</option><option>One dashboard of all items still out</option><option>Visible current holder and original borrower</option><option>Timeline of every custody change</option><option>Automatic handover summary for the next shift</option><option>Clear due-time and overdue alerts</option><option>Faster asset search / identification</option><option>Other</option></select></label>
+                <label class="form-field"><span>Example or direct quote (optional)</span><textarea name="example" rows="3" maxlength="700" placeholder="Describe a real example. Avoid names or personal information."></textarea></label>
+                <div class="form-actions"><button type="reset" class="button button-quiet">Clear form</button><button type="submit" class="button button-primary">Save response</button></div>
+                <p class="privacy-note">Responses are saved in this browser only. Export the CSV to back them up or analyze them elsewhere.</p>
+              </form>
+            </section>
+
+            <aside class="research-side">
+              <section class="panel insight-panel">
+                <div class="panel-heading"><div><h2>What the responses say</h2><p>Aggregated from saved entries.</p></div><span class="insight-mark">↗</span></div>
+                <div class="research-stats" id="research-stats"></div>
+                <div class="subsection-heading"><strong>Most difficult tasks</strong><span id="pain-total">0 responses</span></div>
+                <div id="pain-chart" class="bar-list"></div>
+                <div class="subsection-heading"><strong>How often it happens</strong></div>
+                <div id="frequency-chart" class="bar-list"></div>
+                <div class="insight-disclaimer" id="research-data-label">No responses saved yet. Add an interview entry to begin.</div>
+              </section>
+              <section class="panel response-panel">
+                <div class="panel-heading"><div><h2>Saved responses</h2><p>Review the evidence behind the summary.</p></div><span id="response-count" class="count-badge">0</span></div>
+                <div class="response-list" id="response-list"><div class="empty-state small-empty">No responses yet.</div></div>
+                <div class="response-actions"><button class="text-button" id="load-demo-research">Load illustrative sample data</button><button class="text-button danger-text" id="clear-research">Clear all responses</button></div>
+                <p class="privacy-note">Illustrative sample entries are fictional and always labelled as examples. Do not present them as research findings.</p>
+              </section>
+            </aside>
+          </div>
+        </section>
+
+        <!-- INFORMATION -->
+        <section class="page" id="page-information">
+          <div class="page-heading"><div><p class="eyebrow">QUICK GUIDE</p><h1>Information</h1><p class="page-description">A simple guide for anyone starting a shift at the equipment desk.</p></div></div>
+          <div class="info-hero"><div class="info-hero-icon">CS</div><div><h2>Your job is to know four things</h2><p>What item is out? Who has it now? When should it come back? What happened before?</p></div></div>
+          <div class="info-grid">
+            <article class="panel info-card"><div class="info-number">01</div><h3>Start at Overview</h3><p>Check the number of items still out and the current people holding them. This is the quickest way to understand the desk at shift start.</p></article>
+            <article class="panel info-card"><div class="info-number">02</div><h3>Open a loan to see its trace</h3><p>Each physical item has its own loan record. Open the trace to see checkout, custody transfers, notes, and return events in order.</p></article>
+            <article class="panel info-card"><div class="info-number">03</div><h3>Transfer means a new holder</h3><p>When an item moves from one person to another, update the current holder and expected return time. The original borrower stays visible in the history.</p></article>
+            <article class="panel info-card"><div class="info-number">04</div><h3>Record the physical return</h3><p>Only mark an item returned after it is physically back at the desk. This closes the loan and makes the asset available again.</p></article>
+          </div>
+          <section class="panel glossary-panel"><div class="panel-heading"><div><h2>Simple words used in this app</h2><p>Use these definitions when explaining the desk to a new person.</p></div></div><div class="glossary-list">
+            <div><strong>Asset ID</strong><p>The unique label on one physical item. Example: AD-12.</p></div>
+            <div><strong>Loan</strong><p>The record showing that one asset has been issued and has not yet been returned.</p></div>
+            <div><strong>Original borrower</strong><p>The person who first collected the item from the desk.</p></div>
+            <div><strong>Current holder / custodian</strong><p>The person who has the item right now.</p></div>
+            <div><strong>Custody transfer</strong><p>A recorded handoff from one person to another. It does not close the loan.</p></div>
+            <div><strong>Trace / activity history</strong><p>The ordered list of things that happened to the item. Old events are preserved.</p></div>
+          </div></section>
+          <section class="panel info-warning"><div class="helper-icon">!</div><div><strong>Important prototype limitation</strong><p>This version saves data in the current browser. It does not synchronize between two computers or staff accounts. A production version would need shared sign-in, a central database, real-time updates, and permission controls.</p></div></section>
+          <section class="panel comparison-panel"><div class="panel-heading"><div><h2>What changes for the administrator?</h2><p>The goal is a better operational outcome, not just a new screen.</p></div></div><div class="comparison-grid"><div><span class="comparison-label before">WITHOUT THIS WORKFLOW</span><h3>Reconstruct the handover</h3><ul><li>Read multiple notes or messages.</li><li>Compare the note with the loan register.</li><li>Guess whether the original borrower still has the item.</li><li>Ask the previous shift for clarification.</li></ul></div><div><span class="comparison-label after">WITH LIVE CUSTODY TRACE</span><h3>See the current situation</h3><ul><li>See all outstanding items in one place.</li><li>See the exact asset ID and current holder.</li><li>See the expected return time and latest event.</li><li>Open the trace only when more detail is needed.</li></ul></div></div></section>
+        </section>
+      </div>
+      <footer class="app-footer"><span>Campus Stores · Product engineering prototype</span><span>Sample data is fictional · Local browser storage</span></footer>
     </main>
-  </body>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header"><div><p class="eyebrow" id="modal-eyebrow">LOAN DETAILS</p><h2 id="modal-title">Loan details</h2></div><button class="icon-button" id="modal-close" aria-label="Close dialog">×</button></div>
+      <div class="modal-content" id="modal-content"></div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
 </html>

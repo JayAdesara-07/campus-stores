@@ -1,30 +1,36 @@
-# Campus Stores
+# Campus Stores — Live Chain of Custody
 
-Campus Stores is a Product Engineer work sample set at a fictional campus media equipment desk. Work through a club’s screening, from equipment pickup to a partial return and the next morning’s handover. Open **Candidate brief** in the app for the assignment.
+A simple administrator-first prototype for equipment lending and shift handovers.
 
-## Run the app
+## Run
 
-Open `index.html` in a modern browser. The app includes its scripts, styles, and icons and can run offline.
+No build tools or dependencies are required. Download/clone this folder and run:
 
-To serve it over local HTTP, run this from the repository folder and visit `http://localhost:8000`.
-
-```sh
-python3 -m http.server 8000 --bind 127.0.0.1
+```bash
+python3 -m http.server 8000
 ```
 
-Each browser stores its own sample shift locally when browser storage is available. **Restart sample shift** restores the fictional starting records.
+Open http://localhost:8000. You can also open `index.html` directly in a modern browser.
 
-## Source
+## What is included
 
-- `index.html` contains the desk layout, candidate brief, and bundled icons.
-- `app.js` contains the sample records and interactions.
-- `styles.css` defines the desktop and mobile layouts.
+- **Overview:** immediate shift-start summary of items still out, current holders, and recent changes.
+- **Loans:** searchable loan register with original borrower, current holder, expected return, and item trace.
+- **Inventory:** physical assets identified by unique asset ID.
+- **Activity:** chronological audit trail; exportable as CSV.
+- **User research:** interviewer-entry form, aggregated difficulty/frequency summaries, response review, and CSV export.
+- **Information:** plain-language guide, terminology, and before/after administrator workflow.
 
-Icon license notices are in [third-party/lucide-LICENSE.txt](third-party/lucide-LICENSE.txt).
+## Demo workflow
 
+The fictional starting data includes Film Society request RQ-214 and Debate Union request RQ-209. Open AD-12 and use **Transfer custody** to change the current holder and expected return. Its original borrower and previous events remain in the trace. Use **Record return** only after the item is physically back at the desk.
 
-## Submit your work
+Use **Restart sample shift** to restore the initial scenario. Research responses are separate from the sample loan data. The optional research examples are fictional and labelled as illustrative; never present them as actual user research.
 
-1. [Fork Campus Stores](https://github.com/virinchi-healthcare/campus-stores/fork) into your GitHub account. Complete the candidate brief and push your changes to your public fork. In your README, point reviewers to your work and explain the decision you made.
-2. In your fork, open **Commits**, select the final commit you want reviewed, and copy the page URL. It should look like `https://github.com/YOUR-USERNAME/campus-stores/commit/COMMIT-SHA`.
-3. [Submit your work through the Google Form](https://docs.google.com/forms/d/e/1FAIpQLScvzoh1R4WS-SkiwAVBQbMvniieJYSoOEfLMyVo5CyjOvYUgQ/viewform). Your **roll number**, **email ID**, and **final commit link from your public fork** are required. Enter your roll number and email ID in the form only.
+## Important limitations
+
+This is a front-end prototype. Data is saved in the current browser's localStorage; it does not synchronize across staff devices. A production system needs authentication, a shared database/API, real-time synchronization, role-based permissions, server timestamps, and an immutable audit log. Custody transfer in this prototype is entered by the administrator and is not yet confirmed by the receiving person.
+
+## Product decision
+
+The chosen direction is **Live Chain of Custody**: replace free-text notes as the primary source of operational truth with structured events and a current-custodian field. Notes remain available as context attached to the relevant asset trace.
